@@ -3,7 +3,7 @@
 
 ## Giới thiệu
 
-ProKicks là một hệ thống quản lý cửa hàng giày bao gồm:
+ProKicks là một hệ thống quản lý cửa hàng giày bóng đá bao gồm:
 - **Frontend**: Ứng dụng Angular quản lý giao diện người dùng.
 - **Backend**: Server Node.js xử lý API và giao tiếp với cơ sở dữ liệu.
 - **Database**: MongoDB dùng để lưu trữ dữ liệu.
