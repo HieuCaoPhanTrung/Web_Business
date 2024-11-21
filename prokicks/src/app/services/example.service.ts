@@ -18,7 +18,6 @@ export class ExampleService {
 
   constructor(private _http: HttpClient, private router: Router) { }
 
-
   getAllProduct(): Observable<any> {
     return this._http.get<any>(this.productApiUrl);
   }
@@ -111,11 +110,6 @@ export class ExampleService {
       catchError(this.handleError)
     );
   }
-  
-  
-
-
-
 
   saveUserData(token: string, userId: string) {
     localStorage.setItem('token', token);
@@ -344,6 +338,4 @@ updateProduct(product: any): Observable<any> {
     return this._http.delete(`${this.myAPI}/product/${id}`); // Đảm bảo rằng myAPI trỏ đến đúng địa chỉ
   }
   
-
-
 }
