@@ -74,7 +74,7 @@ prokicks-project/
      - **shoes**
      - **accessories**
      - **news**
-   - Import dữ liệu vào các collection từ thư mục `data`.
+   - Import dữ liệu tương ứng vào các collection từ thư mục `data`.
 
 2. **Cài đặt thư viện cho backend**:
    - Di chuyển vào thư mục `my-server`:
