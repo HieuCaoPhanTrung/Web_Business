@@ -18,6 +18,8 @@ export class ExampleService {
 
   constructor(private _http: HttpClient, private router: Router) { }
 
+
+
   getAllProduct(): Observable<any> {
     return this._http.get<any>(this.productApiUrl);
   }
@@ -66,9 +68,9 @@ export class ExampleService {
                 });
                 this.loggedIn.next(true);
                 // Lấy redirectUrl hoặc gán mặc định là '/home'
-                const redirectUrl = this.getRedirectUrl();
-                this.clearRedirectUrl(); // Xóa redirectUrl sau khi sử dụng
-                this.router.navigate([redirectUrl]); // Điều hướng đến trang trước đó
+                // const redirectUrl = this.getRedirectUrl();
+                // this.clearRedirectUrl(); // Xóa redirectUrl sau khi sử dụng
+                // this.router.navigate([redirectUrl]); // Điều hướng đến trang trước đó
 
             }
         }),
@@ -110,6 +112,11 @@ export class ExampleService {
       catchError(this.handleError)
     );
   }
+  
+  
+
+
+
 
   saveUserData(token: string, userId: string) {
     localStorage.setItem('token', token);
@@ -338,4 +345,8 @@ updateProduct(product: any): Observable<any> {
     return this._http.delete(`${this.myAPI}/product/${id}`); // Đảm bảo rằng myAPI trỏ đến đúng địa chỉ
   }
   
+
+
 }
+
+

@@ -27,9 +27,9 @@ export class LoginComponent {
     const user = { email: this.email.trim(), password: this.password };
     this._service.login(user).subscribe({
       next: (response) => {
-        console.log('Đăng nhập thành công', response);
+        // console.log('Đăng nhập thành công', response);
         this.goBack(); // Chỉ gọi goBack khi đăng nhập thành công
-        alert('Đăng nhập thành công!');
+        // alert('Đăng nhập thành công!');
 
         // Điều hướng đến trang mong muốn sau khi đăng nhập thành công
         // const redirectUrl = this._service.getRedirectUrl();
@@ -43,11 +43,12 @@ export class LoginComponent {
     });
   }
   goBack(): void {
-    const referrer = document.referrer; // Lấy URL trước đó
-    if (referrer && !referrer.includes('/register')) {
-      this.location.back(); // Quay lại nếu không phải trang đăng ký
+    const redirectUrl = this._service.getRedirectUrl();
+    if (redirectUrl && redirectUrl !== '/login') {
+      this.router.navigate([redirectUrl]); // Điều hướng đến URL đã lưu trước đó
+      this._service.clearRedirectUrl(); // Xóa redirectUrl sau khi sử dụng
     } else {
-      this.router.navigate(['/home']); // Điều hướng đến trang chủ nếu trang trước là trang đăng ký hoặc không xác định
+      this.router.navigate(['/home']); // Nếu không có URL lưu trữ, điều hướng về trang chủ
     }
   }
   

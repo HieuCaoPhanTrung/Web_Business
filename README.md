@@ -70,7 +70,7 @@ prokicks-project/
 ### 4. **Cấu hình và khởi chạy Backend**
 1. **Cài đặt MongoDB và tạo cơ sở dữ liệu**:
    - Mở MongoDB Compass hoặc terminal.
-   - Tạo database `test_db` với các collection:
+   - Tạo database `prokicks_db` với các collection:
      - **shoes**
      - **accessories**
      - **news**

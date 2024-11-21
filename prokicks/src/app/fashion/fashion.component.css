@@ -60,7 +60,7 @@
 }
 
 .wrapper i:hover {
-    background-color: #8B53FF;
+    background-color: #B2945B;
     color: #fff;
 }
 
@@ -270,7 +270,12 @@
 }
 
 .custom-nav .nav-link:active {
-    background-color: #a89058;
+    background-color: #B2945B;
+    font-weight: bold;
+}
+
+.nav a.active {
+    background-color: #B2945B;
     font-weight: bold;
 }
 
