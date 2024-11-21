@@ -97,7 +97,7 @@ prokicks-project/
 ### 5. **Sử dụng**
 - Mở frontend tại [http://localhost:4200](http://localhost:4200).
 - Hệ thống backend sẽ hoạt động đồng thời tại [http://localhost:3000](http://localhost:3000).
-- Dữ liệu được lưu trong cơ sở dữ liệu MongoDB `test_db`.
+- Dữ liệu được lưu trong cơ sở dữ liệu MongoDB `prokicks_db`.
 
 ---
 

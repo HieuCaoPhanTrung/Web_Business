@@ -113,10 +113,6 @@ export class ExampleService {
     );
   }
   
-  
-
-
-
 
   saveUserData(token: string, userId: string) {
     localStorage.setItem('token', token);
@@ -158,8 +154,6 @@ export class ExampleService {
   }
 
 
-
-
   getUserProfile(userId: string): Observable<any> {
     return this._http.get(`${this.myAPI}/users/${userId}`).pipe(
       catchError(this.handleError)
@@ -194,15 +188,11 @@ export class ExampleService {
     return this._http.patch(`${this.myAPI}/orders/cancel/${orderId}`, {});
   }
   
-  
-  
-
 
 // 2 cách chèn biến id vào hàm như sau
 updateProduct(product: any): Observable<any> {
   return this._http.patch(`${this.myAPI}/product/${product._id}`, product);
 }
-
 
 
   getDiscountedShoes(): Observable<any[]> {
@@ -243,7 +233,6 @@ updateProduct(product: any): Observable<any> {
   }
   
   
-  
   getUserCart(userId: string): Observable<any> {
     return this._http.get(`${this.myAPI}/cart/${userId}`).pipe(
       catchError(this.handleError)
@@ -268,8 +257,6 @@ updateProduct(product: any): Observable<any> {
       catchError(this.handleError)
     );
   }
-  
-  
   
 
   // Xóa toàn bộ giỏ hàng
@@ -304,13 +291,6 @@ updateProduct(product: any): Observable<any> {
   }
   
 
-
-  
-
-  
-
-
-
   getAllAccessories(): Observable<any> {
     return this._http.get<any>(`${this.myAPI}/accessories`)
       .pipe(retry(2), catchError(this.handleError));
@@ -328,8 +308,6 @@ updateProduct(product: any): Observable<any> {
   }
 
 
-
-
   getAllProducts(): Observable<any> {
     return this._http.get<any>(`${this.myAPI}/products`)
       .pipe(retry(2), catchError(this.handleError));
@@ -345,8 +323,4 @@ updateProduct(product: any): Observable<any> {
     return this._http.delete(`${this.myAPI}/product/${id}`); // Đảm bảo rằng myAPI trỏ đến đúng địa chỉ
   }
   
-
-
 }
-
-
