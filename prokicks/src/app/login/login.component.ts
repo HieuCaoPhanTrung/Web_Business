@@ -28,27 +28,26 @@ export class LoginComponent {
     this._service.login(user).subscribe({
       next: (response) => {
         console.log('Đăng nhập thành công', response);
+        this.goBack(); // Chỉ gọi goBack khi đăng nhập thành công
         alert('Đăng nhập thành công!');
-        // Lấy URL từ ExampleService (hoặc mặc định /home)
+
+        // Điều hướng đến trang mong muốn sau khi đăng nhập thành công
         // const redirectUrl = this._service.getRedirectUrl();
-        // this._service.clearRedirectUrl(); // Xóa redirectUrl sau khi dùng
-        // this.router.navigate([redirectUrl]); // Điều hướng đến trang mong muốn
+        // this._service.clearRedirectUrl();
+        // this.router.navigate([redirectUrl]);
       },
-      error: (err) => {
-        console.error('Lỗi đăng nhập:', err);
-        if (err.status === 401) {
-          this.errorMessage = 'Email hoặc mật khẩu không chính xác';
-        } else {
-          this.errorMessage = 'Lỗi server, vui lòng thử lại';
-        }
+      error: (err: Error) => {
+        console.error('Lỗi đăng nhập:', err.message);
+        this.errorMessage = err.message; // Hiển thị thông báo lỗi từ service
       },
     });
   }
   goBack(): void {
-    if (window.history.length > 1) {
-      this.location.back(); // Quay lại nếu có lịch sử
+    const referrer = document.referrer; // Lấy URL trước đó
+    if (referrer && !referrer.includes('/register')) {
+      this.location.back(); // Quay lại nếu không phải trang đăng ký
     } else {
-      this.router.navigate(['/home']); // Điều hướng đến trang tin tức nếu không có lịch sử
+      this.router.navigate(['/home']); // Điều hướng đến trang chủ nếu trang trước là trang đăng ký hoặc không xác định
     }
   }
   

@@ -73,7 +73,21 @@ export class ExampleService {
 
             }
         }),
-        catchError(this.handleError)
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 401) {
+              // Lỗi xác thực (Email hoặc mật khẩu sai)
+              console.error('Lỗi đăng nhập: Email hoặc mật khẩu không chính xác');
+              return throwError(() => new Error('Email hoặc mật khẩu không chính xác'));
+          } else if (error.status === 404) {
+              // Người dùng không tồn tại
+              console.error('Lỗi đăng nhập: Người dùng không tồn tại');
+              return throwError(() => new Error('Người dùng không tồn tại'));
+          } else {
+              // Các lỗi khác
+              console.error('Lỗi server:', error.message);
+              return throwError(() => new Error('Lỗi server, vui lòng thử lại sau.'));
+          }
+      })
     );
 }
   setRedirectUrl(currentUrl: string): void {
@@ -333,5 +347,3 @@ updateProduct(product: any): Observable<any> {
 
 
 }
-
-

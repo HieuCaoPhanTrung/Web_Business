@@ -10,7 +10,7 @@
             </h2>
             <input placeholder="Email" type="text" [(ngModel)]="email" />
             <input placeholder="Mật khẩu" type="password" [(ngModel)]="password" />
-            <button (click)="login()" (click)="goBack()">Đăng nhập</button>
+            <button (click)="login()">Đăng nhập</button>
             <p *ngIf="errorMessage">{{ errorMessage }}</p>
             <div class="forgot-password">
                 <a routerLink="/reset-password">Quên mật khẩu?</a>
