@@ -170,7 +170,7 @@ export class ProductComponent implements OnInit {
         this.filteredProducts.sort((a, b) => b.price - a.price);
         break;
       default:
-        this.filteredProducts = [...this.products]; // Trở lại danh sách ban đầu
+        this.filteredProducts = [...this.filteredProducts]; // Trở lại danh sách ban đầu
         break;
     }
   
